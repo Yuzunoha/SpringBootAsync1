@@ -19,9 +19,13 @@ public class HelloController {
 
     String s = "";
 
-    s += service.method1().join() + "\n";
-    s += service.method2().join() + "\n";
-    s += service.method3().join() + "\n";
+    var a = service.method1();
+    var b = service.method2();
+    var c = service.method3();
+
+    s += a.join() + "\n";
+    s += b.join() + "\n";
+    s += c.join() + "\n";
 
     long lapseMs = System.currentTimeMillis() - startMs;
 

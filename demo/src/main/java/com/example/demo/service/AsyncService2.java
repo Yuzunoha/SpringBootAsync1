@@ -13,7 +13,7 @@ public class AsyncService2 {
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
-      return "method3です。";
+      return "method1です。";
     });
   }
 
