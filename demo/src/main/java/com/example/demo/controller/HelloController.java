@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class HelloController {
 
-  private final AsyncService1 asyncService1;
-  private final AsyncService2 asyncService2;
+  private final IAsyncService asyncService1;
+  private final IAsyncService asyncService2;
 
   @RequestMapping("/hello1")
   public String hello1() {
-    AsyncService1 service = asyncService1;
+    IAsyncService service = asyncService1;
     long startMs = System.currentTimeMillis();
 
     String s = "";
@@ -36,7 +36,7 @@ public class HelloController {
 
   @RequestMapping("/hello2")
   public String hello2() {
-    AsyncService2 service = asyncService2;
+    IAsyncService service = asyncService2;
     long startMs = System.currentTimeMillis();
 
     String s = "";
