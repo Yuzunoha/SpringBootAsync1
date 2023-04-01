@@ -13,6 +13,7 @@ public class HelloController {
   private final IAsyncService asyncService2;
   private final IAsyncService asyncService3;
   private final IAsyncService asyncService4;
+  private final IStringService stringService1;
 
   @RequestMapping("/hello1")
   public String hello1() {
@@ -34,6 +35,11 @@ public class HelloController {
     return handle(asyncService4);
   }
 
+  @RequestMapping("/hello5")
+  public String hello5() {
+    return handle(stringService1);
+  }
+
   private String handle(IAsyncService service) {
     long startMs = System.currentTimeMillis();
 
@@ -46,6 +52,26 @@ public class HelloController {
     s += a.join() + "\n";
     s += b.join() + "\n";
     s += c.join() + "\n";
+
+    long lapseMs = System.currentTimeMillis() - startMs;
+
+    s += lapseMs + "ms経過\n";
+
+    return s;
+  }
+
+  private String handle(IStringService service) {
+    long startMs = System.currentTimeMillis();
+
+    String s = "";
+
+    var a = service.method1();
+    var b = service.method2();
+    var c = service.method3();
+
+    s += a + "\n";
+    s += b + "\n";
+    s += c + "\n";
 
     long lapseMs = System.currentTimeMillis() - startMs;
 
