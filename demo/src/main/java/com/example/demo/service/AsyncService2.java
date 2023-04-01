@@ -4,7 +4,7 @@ import java.util.concurrent.CompletableFuture;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AsyncService2 {
+public class AsyncService2 implements IAsyncService {
 
   public CompletableFuture<String> method1() {
     return CompletableFuture.supplyAsync(() -> {

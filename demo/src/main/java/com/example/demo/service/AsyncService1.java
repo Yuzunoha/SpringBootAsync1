@@ -5,7 +5,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AsyncService1 {
+public class AsyncService1 implements IAsyncService {
 
   @Async
   public CompletableFuture<String> method1() {
