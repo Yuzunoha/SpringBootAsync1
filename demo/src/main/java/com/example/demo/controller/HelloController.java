@@ -11,6 +11,8 @@ public class HelloController {
 
   private final IAsyncService asyncService1;
   private final IAsyncService asyncService2;
+  private final IAsyncService asyncService3;
+  private final IAsyncService asyncService4;
 
   @RequestMapping("/hello1")
   public String hello1() {
@@ -20,6 +22,16 @@ public class HelloController {
   @RequestMapping("/hello2")
   public String hello2() {
     return handle(asyncService2);
+  }
+
+  @RequestMapping("/hello3")
+  public String hello3() {
+    return handle(asyncService3);
+  }
+
+  @RequestMapping("/hello4")
+  public String hello4() {
+    return handle(asyncService4);
   }
 
   private String handle(IAsyncService service) {
