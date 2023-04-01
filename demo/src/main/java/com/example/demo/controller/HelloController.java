@@ -14,29 +14,15 @@ public class HelloController {
 
   @RequestMapping("/hello1")
   public String hello1() {
-    IAsyncService service = asyncService1;
-    long startMs = System.currentTimeMillis();
-
-    String s = "";
-
-    var a = service.method1();
-    var b = service.method2();
-    var c = service.method3();
-
-    s += a.join() + "\n";
-    s += b.join() + "\n";
-    s += c.join() + "\n";
-
-    long lapseMs = System.currentTimeMillis() - startMs;
-
-    s += lapseMs + "ms経過\n";
-
-    return s;
+    return handle(asyncService1);
   }
 
   @RequestMapping("/hello2")
   public String hello2() {
-    IAsyncService service = asyncService2;
+    return handle(asyncService2);
+  }
+
+  private String handle(IAsyncService service) {
     long startMs = System.currentTimeMillis();
 
     String s = "";
@@ -54,9 +40,5 @@ public class HelloController {
     s += lapseMs + "ms経過\n";
 
     return s;
-  }
-
-  private String handle() {
-    return "";
   }
 }
