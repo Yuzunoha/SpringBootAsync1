@@ -11,32 +11,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController2 {
 
   private final IAsyncService anno1Wrap1;
+  private final IAsyncService anno0Wrap1;
 
-  @RequestMapping("/1/1")
-  public String hello1_1() {
-    var startMs = System.currentTimeMillis();
-
-    var s = "";
-    s += anno1Wrap1.method1().join() + "\n";
-    s += anno1Wrap1.method2().join() + "\n";
-    s += anno1Wrap1.method3().join() + "\n";
-
-    s += lapseMs(startMs) + "ms" + "\n";
-    return s;
+  @RequestMapping("/anno1wrap1")
+  public String anno1Wrap1() {
+    return process(anno1Wrap1);
   }
 
-  @RequestMapping("/1/2")
-  public String hello1_2() {
-    var startMs = System.currentTimeMillis();
+  @RequestMapping("/anno0wrap1")
+  public String anno0Wrap1() {
+    return process(anno0Wrap1);
+  }
 
+  private String process(IAsyncService service) {
+    var startMs = System.currentTimeMillis();
+    var cf1 = service.method1();
+    var cf2 = service.method2();
+    var cf3 = service.method3();
     var s = "";
-    var cf1 = anno1Wrap1.method1();
-    var cf2 = anno1Wrap1.method2();
-    var cf3 = anno1Wrap1.method3();
     s += cf1.join() + "\n";
     s += cf2.join() + "\n";
     s += cf3.join() + "\n";
-
     s += lapseMs(startMs) + "ms" + "\n";
     return s;
   }
