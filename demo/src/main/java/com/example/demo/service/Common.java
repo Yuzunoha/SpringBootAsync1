@@ -1,10 +1,10 @@
-package com.example.demo.common;
+package com.example.demo.service;
 
 import java.util.function.Supplier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Util {
+public class Common {
 
   public String getClassMethod(Object o) {
     String[] a = o.getClass().getName().split("\\.");
