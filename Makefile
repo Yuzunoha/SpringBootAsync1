@@ -1,6 +1,6 @@
 release-up:
 	docker-compose -f docker-compose-release.yml build --no-cache
-	docker-compose -f docker-compose-release.yml
+	docker-compose -f docker-compose-release.yml up
 
 up:
 	docker-compose up
