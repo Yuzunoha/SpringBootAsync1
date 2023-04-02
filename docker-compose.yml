@@ -1,9 +1,9 @@
 version: '3.5'
 services:
-  app:
+  demo:
     tty: true
     build:
       context: .
-      dockerfile: ./docker/app/Dockerfile
+      dockerfile: ./docker/demo/Dockerfile
     ports:
-      - '8080:8080'
+      - 8080:80
