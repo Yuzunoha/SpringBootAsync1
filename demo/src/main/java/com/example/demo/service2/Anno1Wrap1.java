@@ -14,23 +14,34 @@ public class Anno1Wrap1 implements IAsyncService {
 
   @Async
   public CompletableFuture<String> method1() {
-    var o = new Object() {};
-    final String t = util.getClassMethod(o);
+    final String s = util.getClassMethod(new Object() {});
     return CompletableFuture.supplyAsync(() -> {
       try {
         Thread.sleep(100);
       } catch (InterruptedException e) {}
-      return t;
+      return s;
     });
   }
 
-  @Override
+  @Async
   public CompletableFuture<String> method2() {
-    throw new UnsupportedOperationException("Unimplemented method 'method2'");
+    final String s = util.getClassMethod(new Object() {});
+    return CompletableFuture.supplyAsync(() -> {
+      try {
+        Thread.sleep(100);
+      } catch (InterruptedException e) {}
+      return s;
+    });
   }
 
-  @Override
+  @Async
   public CompletableFuture<String> method3() {
-    throw new UnsupportedOperationException("Unimplemented method 'method3'");
+    final String s = util.getClassMethod(new Object() {});
+    return CompletableFuture.supplyAsync(() -> {
+      try {
+        Thread.sleep(100);
+      } catch (InterruptedException e) {}
+      return s;
+    });
   }
 }
