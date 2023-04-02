@@ -4,7 +4,4 @@ COPY ./host/demo /demo
 
 WORKDIR /demo
 
-RUN echo `pwd`
-RUN echo `ls`
-RUN ./gradlew build
-RUN echo `ls`
+EXPOSE 8080
