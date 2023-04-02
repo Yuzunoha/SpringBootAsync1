@@ -15,33 +15,18 @@ public class Anno1Wrap1 implements IAsyncService {
   @Async
   public CompletableFuture<String> method1() {
     final String s = util.getClassMethod(new Object() {});
-    return CompletableFuture.supplyAsync(() -> {
-      try {
-        Thread.sleep(100);
-      } catch (InterruptedException e) {}
-      return s;
-    });
+    return CompletableFuture.supplyAsync(util.sleepSupplier(s));
   }
 
   @Async
   public CompletableFuture<String> method2() {
     final String s = util.getClassMethod(new Object() {});
-    return CompletableFuture.supplyAsync(() -> {
-      try {
-        Thread.sleep(100);
-      } catch (InterruptedException e) {}
-      return s;
-    });
+    return CompletableFuture.supplyAsync(util.sleepSupplier(s));
   }
 
   @Async
   public CompletableFuture<String> method3() {
     final String s = util.getClassMethod(new Object() {});
-    return CompletableFuture.supplyAsync(() -> {
-      try {
-        Thread.sleep(100);
-      } catch (InterruptedException e) {}
-      return s;
-    });
+    return CompletableFuture.supplyAsync(util.sleepSupplier(s));
   }
 }
