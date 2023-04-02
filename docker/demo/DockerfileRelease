@@ -1,0 +1,11 @@
+FROM amazoncorretto:17
+
+COPY ./host/demo /demo
+
+WORKDIR /demo
+
+EXPOSE 8080
+
+RUN ./gradlew build
+
+ENTRYPOINT [ "java", "-jar", "./build/libs/demo-0.0.1-SNAPSHOT.jar" ]
