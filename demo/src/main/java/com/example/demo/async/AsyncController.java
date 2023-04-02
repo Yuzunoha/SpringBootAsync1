@@ -1,38 +1,26 @@
-package com.example.demo.controller;
+package com.example.demo.async;
 
-import com.example.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/hello2")
-public class HelloController {
+public class AsyncController {
 
   private final IAsyncService anno1Wrap1;
   private final IAsyncService anno0Wrap1;
   private final IAsyncService anno1Wrap0;
   private final IAsyncService anno0Wrap0;
 
-  @RequestMapping("/anno1wrap1")
-  public String anno1Wrap1() {
-    return process(anno1Wrap1);
-  }
-
-  @RequestMapping("/anno0wrap1")
-  public String anno0Wrap1() {
-    return process(anno0Wrap1);
-  }
-
-  @RequestMapping("/anno1wrap0")
-  public String anno1Wrap0() {
-    return process(anno1Wrap0);
-  }
-
-  @RequestMapping("/anno0wrap0")
-  public String anno0Wrap0() {
-    return process(anno0Wrap0);
+  @RequestMapping("/")
+  public String all() {
+    var s = "";
+    s += process(anno1Wrap1);
+    s += process(anno0Wrap1);
+    s += process(anno1Wrap0);
+    s += process(anno0Wrap0);
+    return s;
   }
 
   private String process(IAsyncService service) {
@@ -44,7 +32,7 @@ public class HelloController {
     s += cf1.join() + "\n";
     s += cf2.join() + "\n";
     s += cf3.join() + "\n";
-    s += lapseMs(startMs) + "ms" + "\n";
+    s += lapseMs(startMs) + "ms" + "\n\n";
     return s;
   }
 
