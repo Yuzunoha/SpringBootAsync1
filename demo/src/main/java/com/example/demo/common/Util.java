@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 public class Util {
 
   public String getClassMethod(Object o) {
-    var s = "";
-    s += o.getClass().getName() + "\n";
-    s += o.getClass().getEnclosingMethod().getName() + "\n";
-    return s;
+    String[] a = o.getClass().getName().split("\\.");
+    String className = a[a.length - 1].split("\\$")[0];
+    String methodName = o.getClass().getEnclosingMethod().getName();
+    return className + "." + methodName + "()";
   }
 }
