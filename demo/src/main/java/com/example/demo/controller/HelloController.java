@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/hello1")
 public class HelloController {
 
   private final IAsyncService asyncService1;
@@ -16,32 +17,32 @@ public class HelloController {
   private final IStringService stringService1;
   private final IStringService stringService2;
 
-  @RequestMapping("/hello1")
+  @RequestMapping("/1")
   public String hello1() {
     return handle(asyncService1);
   }
 
-  @RequestMapping("/hello2")
+  @RequestMapping("/2")
   public String hello2() {
     return handle(asyncService2);
   }
 
-  @RequestMapping("/hello3")
+  @RequestMapping("/3")
   public String hello3() {
     return handle(asyncService3);
   }
 
-  @RequestMapping("/hello4")
+  @RequestMapping("/4")
   public String hello4() {
     return handle(asyncService4);
   }
 
-  @RequestMapping("/hello5")
+  @RequestMapping("/5")
   public String hello5() {
     return handle(stringService1);
   }
 
-  @RequestMapping("/hello6")
+  @RequestMapping("/6")
   public String hello6() {
     return handle(stringService2);
   }
