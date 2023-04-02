@@ -21,4 +21,11 @@ public class Util {
       return s;
     };
   }
+
+  public String sleepProcess(String s) {
+    try {
+      Thread.sleep(100);
+    } catch (InterruptedException e) {}
+    return s;
+  }
 }
