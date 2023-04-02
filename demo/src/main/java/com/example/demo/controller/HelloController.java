@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service2.*;
+import com.example.demo.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/hello2")
-public class HelloController2 {
+public class HelloController {
 
   private final IAsyncService anno1Wrap1;
   private final IAsyncService anno0Wrap1;
