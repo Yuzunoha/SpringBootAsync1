@@ -14,6 +14,6 @@ public class HelloController2 {
 
   @RequestMapping("/1")
   public String hello1() {
-    return "HelloController2/1";
+    return anno1Wrap1.method1().join() + "\n";
   }
 }
