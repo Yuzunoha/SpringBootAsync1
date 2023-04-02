@@ -13,6 +13,7 @@ public class HelloController2 {
   private final IAsyncService anno1Wrap1;
   private final IAsyncService anno0Wrap1;
   private final IAsyncService anno1Wrap0;
+  private final IAsyncService anno0Wrap0;
 
   @RequestMapping("/anno1wrap1")
   public String anno1Wrap1() {
@@ -27,6 +28,11 @@ public class HelloController2 {
   @RequestMapping("/anno1wrap0")
   public String anno1Wrap0() {
     return process(anno1Wrap0);
+  }
+
+  @RequestMapping("/anno0wrap0")
+  public String anno0Wrap0() {
+    return process(anno0Wrap0);
   }
 
   private String process(IAsyncService service) {
